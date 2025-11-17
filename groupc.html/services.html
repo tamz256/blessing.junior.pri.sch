@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Blessing Junior School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-orange: #FF9800;
+            --primary-purple: #673AB7;
+            --light-yellow: #FFF9C4;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-orange));
+            color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 70px;
+            height: 70px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            color: var(--primary-purple);
+            font-size: 14px;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .school-name {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .school-motto {
+            font-size: 16px;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        .contact-info {
+            text-align: right;
+            font-size: 14px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            position: relative;
+        }
+        
+        .nav-menu a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            background-color: var(--light-yellow);
+            color: var(--primary-purple);
+        }
+        
+        .nav-menu a.active {
+            background-color: var(--primary-purple);
+            color: var(--white);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+            min-height: 70vh;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-purple);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .page-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-orange);
+        }
+        
+        /* Services Page */
+        .services-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background: linear-gradient(rgba(103, 58, 183, 0.8), rgba(255, 152, 0, 0.8)), url(vvvvvv.png) no-repeat center center/cover;
+            color: white;
+            font-size: 40px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin: 15px 0;
+            flex-grow: 1;
+        }
+        
+        .service-features li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li:before {
+            content: "✓";
+            color: var(--primary-orange);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .service-btn {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-orange);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-highlight {
+            background: linear-gradient(rgba(103, 58, 183, 0.8), rgba(255, 152, 0, 0.8)), url(schl\ compound.jpg) no-repeat center center/cover;
+            color: white;
+            padding: 50px 0;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .highlight-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .highlight-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-orange);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-orange);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 20px;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+                font-size: 12px;
+            }
+            
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-menu a {
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+       <div class="container">
+            <div class="header-top">
+                <div class="logo-container">
+                  
+                   
+                       <img src="logo 2.jpg"alt="logo" width="100px" height="100">
+
+                    <div>
+                        <h1 class="school-name" style="font-size: 50px; color: chartreuse;font-family: Cambria;">BLESSING JUNIOR SCHOOL</h1>
+                        <p class="school-motto; font-size" style="font-size: 20px;">"Train up a child"</p>
+                        
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <p>Email: blessingjuniorschoolkaswa@gmail.com</p>
+                    <p>Tel: 0755570091 / 0783106756</p>
+                    <p>Busula-Luweero District</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+     <nav>
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="announcement.html">Announcements</a></li>
+            <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h2 class="page-title">Our Services</h2>
+            
+            <div class="services-intro">
+                <p>Blessing Junior School offers comprehensive educational and community support services designed to nurture holistic development and create positive impact in our community. Our programs are tailored to meet the diverse needs of our Learners and the wider community.</p>
+            </div>
+            
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Primary Education</h3>
+                        <p>We provide quality primary education following the Ugandan national curriculum, with additional enrichment programs to ensure our students receive a well-rounded education.</p>
+                        <ul class="service-features">
+                            <li>Ugandan National Curriculum</li>
+                            <li>Small Class Sizes (max 30 students)</li>
+                            <li>Individualized Attention</li>
+                            <li>Modern Teaching Methods</li>
+                            <li>Continuous Assessment</li>
+                            <li>Remedial Classes</li>
+                        </ul>
+                        <a href="#" class="btn service-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Health & Nutrition</h3>
+                        <p>Our comprehensive health program ensures students' physical well-being through regular check-ups, nutrition programs, and health education.</p>
+                        <ul class="service-features">
+                            <li>Regular Health Screenings</li>
+                            <li>Nutritional Meal Program</li>
+                            <li>Hygiene Education</li>
+                            <li>First Aid Training</li>
+                            <li>Parent Health Workshops</li>
+                            <li>Immunization Programs</li>
+                        </ul>
+                        <a href="#" class="btn service-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Community Support</h3>
+                        <p>We extend our services beyond the classroom to support the wider community through various programs and initiatives.</p>
+                        <ul class="service-features">
+                            <li>Adult Literacy Classes</li>
+                            <li>Vocational Training</li>
+                            <li>Agricultural Support</li>
+                            <li>Community Health Days</li>
+                            <li>Parenting Workshops</li>
+                            <li>Microfinance Initiatives</li>
+                        </ul>
+                        <a href="#" class="btn service-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Sports & Recreation</h3>
+                        <p>Our sports program promotes physical fitness, teamwork, and healthy competition through various athletic activities.</p>
+                        <ul class="service-features">
+                            <li>Football Team</li>
+                            <li>Athletics Program</li>
+                            <li>Traditional Games</li>
+                            <li>Annual Sports Day</li>
+                            <li>Inter-school Competitions</li>
+                            <li>Recreational Activities</li>
+                        </ul>
+                        <a href="#" class="btn service-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Creative Arts</h3>
+                        <p>We nurture creativity and self-expression through our comprehensive music, dance, and drama program.</p>
+                        <ul class="service-features">
+                            <li>Music Lessons</li>
+                            <li>Traditional Dance</li>
+                            <li>Drama Club</li>
+                            <li>Art Classes</li>
+                            <li>Annual Cultural Day</li>
+                            <li>Creative Writing</li>
+                        </ul>
+                        <a href="#" class="btn service-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Special Needs Support</h3>
+                        <p>We provide inclusive education and specialized support for students with diverse learning needs.</p>
+                        <ul class="service-features">
+                            <li>Individualized Learning Plans</li>
+                            <li>Resource Room</li>
+                            <li>Counseling Services</li>
+                            <li>Teacher Training</li>
+                            <li>Parent Support Groups</li>
+                            <li>Therapy Sessions</li>
+                        </ul>
+                        <a href="#" class="btn service-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-highlight">
+                <div class="highlight-content">
+                    <h2>Community Impact Through Education</h2>
+                    <p>At Blessing Junior School, we believe that education is the foundation for community transformation. Our services extend beyond the classroom to create lasting positive change in Busula-Luweero District.</p>
+                    <p>Through our community support programs, we've helped over 200 adults achieve literacy, supported 50 families with agricultural training, and provided health services to more than 1,000 community members annually.</p>
+                    <a href="contact.html" class="btn" style="background: white; color: var(--primary-purple);">Get Involved Today</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Blessing Junior School</h3>
+                    <p>Providing quality education and community support in Busula-Luweero District. "Train up a child" in the way they should go.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="announcements.html">Announcements</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Busula-Luweero District, Uganda</p>
+                    <p><i class="fas fa-phone"></i> 0755570091 / 0783106756</p>
+                    <p><i class="fas fa-envelope"></i> blessingjuniorschoolkaswa@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Blessing Junior School & Community Support. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Service Card Interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+                });
+            });
+            
+            // Service button click handlers
+            const serviceButtons = document.querySelectorAll('.service-btn');
+            
+            serviceButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const serviceTitle = this.closest('.service-content').querySelector('h3').textContent;
+                    alert(`Thank you for your interest in our ${serviceTitle} program. We will contact you with more information soon.`);
+                });
+            });
+            
+            // Highlight section animation
+            const highlightSection = document.querySelector('.service-highlight');
+            
+            function checkScroll() {
+                const sectionTop = highlightSection.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.75) {
+                    highlightSection.style.opacity = '1';
+                    highlightSection.style.transform = 'translateY(0)';
+                }
+            }
+            
+            // Initial styles for animation
+            highlightSection.style.opacity = '0';
+            highlightSection.style.transform = 'translateY(20px)';
+            highlightSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            
+            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('load', checkScroll);
+        });
+    </script>
+</body>
+</html>
